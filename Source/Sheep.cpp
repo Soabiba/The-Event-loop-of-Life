@@ -112,7 +112,7 @@ void Sheep::decide([[maybe_unused]] Level* level)
 		canEat = false;
 		currentlyBreeding = false;
 		birthingTimer = birthingTimerMax;
-		sheepState = running;
+		sheepState = evading;
 	}
 
 }
@@ -137,7 +137,7 @@ void Sheep::act(Level* level)
 	}
 #pragma endregion HealthAndHunger
 
-	if (sheepState == running)
+	if (sheepState == evading)
 	{
 		Vector2 averageDirectionAway = { 0,0 };
 
@@ -267,11 +267,11 @@ void Sheep::draw()
 	Color color = BLACK;
 	if (sheepState == goingToFood)
 	{
-		color = ORANGE;
+		color = DARKGRAY;
 	}
 	if (sheepState == wandering)
 	{
-		color = BLUE;
+		color = LIGHTGRAY;
 	}
 	if (sheepState == still)
 	{
@@ -279,11 +279,11 @@ void Sheep::draw()
 	}
 	if (sheepState == breeding)
 	{
-		color = PINK;
+		color = PURPLE;
 	}
-	if (sheepState == running)
+	if (sheepState == evading)
 	{
-		color = RED;
+		color = SKYBLUE;
 	}
 
 	float temp = imgSize;

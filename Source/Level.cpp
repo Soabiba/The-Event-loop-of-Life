@@ -40,8 +40,7 @@ void Level::remove_dead_and_add_pending_agents()
 			agent_iterator++;
 		}
 	}
-	// This must happen _after_ we remove agents from the vector 'all_agents'.
-	// @AddMoreHere
+	
 	grass_agents.remove_if([](Grass& a) { return a.dead; });
 	sheep_agents.remove_if([](Sheep& a) { return a.dead; });
 	wolf_agents.remove_if([](Wolf& a) { return a.dead; });
@@ -56,7 +55,7 @@ void Level::remove_dead_and_add_pending_agents()
 		id_to_agent.insert({ agent->id, agent });
 	}
 
-	pending_agents.clear(); // Important that we clear this, otherwise we'll add the same agents every frame.
+	pending_agents.clear(); 
 }
 
 Agent* Level::spawn_agent(Grass agent)
@@ -112,7 +111,6 @@ void Level::reset()
 	grass_agents.clear();
 	sheep_agents.clear();
 
-	// TODO: Implement this yourself, clear all lists and vectors, after that spawn agents
 	for (int x = 0; x < MAP_WIDTH; x++)
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
@@ -161,7 +159,6 @@ void Level::update()
 
 	for (auto& agent : all_agents)
 	{
-		// TODO: This piece of code needs to be changed to make sure that sense, decide, act, happen at different frequencies.
 		if (sense)
 		{
 			agent->sense(this);
@@ -202,8 +199,6 @@ void Level::draw()
 		wolf.draw();
 	}
 
-
-
 	char sheep[64];
 	sprintf_s(sheep, "%d", (int)sheep_agents.size());
 	char grass[64];
@@ -213,8 +208,4 @@ void Level::draw()
 	char frames[64];
 	sprintf_s(frames, "%d", framesGameRanFor);
 
-	DrawText(sheep, 60, 20, 20, BEIGE);
-	DrawText(grass, 20, 20, 20, GREEN);
-	DrawText(wolf, 100, 20, 20, BLACK);
-	DrawText(frames, 140, 20, 20, RED);
 }

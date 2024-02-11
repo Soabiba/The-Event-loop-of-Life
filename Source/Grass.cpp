@@ -20,7 +20,6 @@ void Grass::sense(Level* level)
 	if (!dirt)
 	{
 
-
 		trampled = false;
 
 		for (Sheep sheep : level->sheep_agents)
@@ -92,11 +91,11 @@ void Grass::decide(Level* level)
 
 	if (trampled)
 	{
-		grassState = trampledd;
+		grassState = trample;
 	}
 	if (dirt)
 	{
-		grassState = dirtt;
+		grassState = dirty;
 	}
 }
 
@@ -145,7 +144,7 @@ void Grass::act(Level* level)
 			health = maxHealth;
 		}
 	}
-	if (grassState == trampledd)
+	if (grassState == trample)
 	{
 		health -= 0.0001f;
 	}
@@ -171,7 +170,7 @@ void Grass::act(Level* level)
 void Grass::draw()
 {
 	Color color = GREEN;
-	if (grassState == trampledd)
+	if (grassState == trample)
 	{
 		color = DARKGREEN;
 	}
@@ -181,7 +180,7 @@ void Grass::draw()
 	}
 	if (dirt)
 	{
-		color = DARKBROWN;
+		color = BROWN;
 	}
 	if (!dirt)
 	{

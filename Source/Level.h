@@ -24,7 +24,6 @@ public:
 	virtual ~Agent() = default;
 };
 
-// This is just an example
 class Grass : public Agent {
 public:
 	int growth_timeMax = 20;
@@ -49,8 +48,8 @@ public:
 	enum State {
 		growing,
 		spreading,
-		trampledd,
-		dirtt
+		trample,
+		dirty
 	};
 	State grassState = growing;
 	struct Neighbour {
@@ -68,16 +67,11 @@ public:
 	void decide(Level* level);
 	// If the growth time is up, increase the size of the grass.
 
-
 	void act(Level* level);
 
 	// Check if the growth size is above a certain threshold, and if so, create a new grass agent.
-	// Also check if it's being trambled on and if so, dont grow or spread
+	// Also check if it's being trampled on and if so, dont grow or spread
 	void draw() override;
-
-
-	// Draw the grass on the screen using the position and size.
-
 };
 
 class Sheep : public Agent
@@ -85,7 +79,7 @@ class Sheep : public Agent
 public:
 	enum state
 	{
-		running,
+		evading,
 		wandering,
 		goingToFood,
 		breeding,
@@ -177,9 +171,7 @@ public:
 class Level
 {
 	int last_id = 0;
-	//NOTE(Filippo): Using a list here is not the best idea, ideally you should store agents in some other data structure that keeps them close to each other while being pointer-stable.
-	// @AddMoreHere
-
+	
 	std::unordered_map<int, Agent*> id_to_agent;
 	std::vector<Agent*> all_agents;
 
@@ -203,7 +195,6 @@ public:
 	Agent* spawn_agent(Grass agent);
 	Agent* spawn_agent(Wolf agent);
 	Agent* spawn_agent(Sheep agent);
-	// @AddMoreHere
 
 	void reset();
 	void update();
@@ -211,5 +202,4 @@ public:
 
 private:
 	void remove_dead_and_add_pending_agents();
-	// Remember, if you add more lists (see @AddMoreHere), edit this function so that dead agents are removed correctly without leaking memory
 };

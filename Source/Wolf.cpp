@@ -82,8 +82,6 @@ void Wolf::decide([[maybe_unused]] Level* level)
 		wolfState = breeding;
 		canBreed = false;
 	}
-
-
 }
 
 void Wolf::act(Level* level)
@@ -119,7 +117,6 @@ void Wolf::act(Level* level)
 		int chance = GetRandomValue(0, 10);
 		if (chance > 2)
 		{
-
 			Vector2 direction = Vector2Subtract(closestSheep->position, position);
 			direction = Vector2Normalize(direction);
 			velocity = Vector2Scale(direction, speed);
@@ -165,7 +162,7 @@ void Wolf::draw()
 	}
 	if (wolfState == wandering)
 	{
-		color = BLACK;
+		color = RED;
 	}
 	if (wolfState == breeding)
 	{

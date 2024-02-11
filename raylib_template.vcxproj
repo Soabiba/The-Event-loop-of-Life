@@ -95,7 +95,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Grass.cpp" />
+    <ClCompile Include="Source\Level.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Sheep.cpp" />
+    <ClCompile Include="Source\Wolf.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -110,6 +114,7 @@
     <ClInclude Include="External\raylib\include\raylib.h" />
     <ClInclude Include="External\raylib\include\raymath.h" />
     <ClInclude Include="External\raylib\include\rlgl.h" />
+    <ClInclude Include="Source\Level.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="External\raylib\lib\raylib.lib" />

@@ -19,4 +19,28 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+    <None Include="External\raylib\CHANGELOG" />
+    <None Include="External\raylib\LICENSE" />
+    <None Include="External\raylib\README.md" />
+    <None Include="External\raylib\lib\raylib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="External\raylib\include\raylib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="External\raylib\include\raymath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="External\raylib\include\rlgl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="External\raylib\lib\raylib.lib" />
+    <Library Include="External\raylib\lib\raylibdll.lib" />
+  </ItemGroup>
 </Project>

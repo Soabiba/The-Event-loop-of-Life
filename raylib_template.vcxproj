@@ -97,6 +97,24 @@
   <ItemGroup>
     <ClCompile Include="Source\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="External\raylib\CHANGELOG" />
+    <None Include="External\raylib\lib\raylib.dll" />
+    <None Include="External\raylib\LICENSE" />
+    <None Include="External\raylib\README.md" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="External\raylib\include\raylib.h" />
+    <ClInclude Include="External\raylib\include\raymath.h" />
+    <ClInclude Include="External\raylib\include\rlgl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="External\raylib\lib\raylib.lib" />
+    <Library Include="External\raylib\lib\raylibdll.lib" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

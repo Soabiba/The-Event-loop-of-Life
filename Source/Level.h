@@ -168,10 +168,11 @@ public:
 
 };
 
+
 class Level
 {
 	int last_id = 0;
-	
+
 	std::unordered_map<int, Agent*> id_to_agent;
 	std::vector<Agent*> all_agents;
 
@@ -202,4 +203,34 @@ public:
 
 private:
 	void remove_dead_and_add_pending_agents();
+};
+
+class Crow {
+public:
+	Vector2 position;
+	Vector2 velocity;
+	Vector2 acceleration;
+	float maxForce; // Maximum steering force
+	float maxSpeed; // Maximum speed
+
+	Crow(Vector2 pos);
+	void update();
+	void applyForce(Vector2 force);
+	Vector2 seek(Vector2 target);
+	void flock(std::vector<Crow>& crows);
+	Vector2 separate(std::vector<Crow>& crows);
+	Vector2 align(std::vector<Crow>& crows);
+	Vector2 cohesion(std::vector<Crow>& crows);
+};
+
+class Flock {
+private:
+	std::vector<Crow> crows;
+
+public:
+	Flock();
+	void addCrow(const Crow& crow);
+	void update();
+	void draw();
+	void initialize(int numberOfCrows, int screenWidth, int screenHeight); // New method
 };

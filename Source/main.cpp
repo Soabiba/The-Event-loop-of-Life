@@ -9,6 +9,9 @@ int main(void)
     SetConfigFlags(ConfigFlags::FLAG_WINDOW_RESIZABLE | ConfigFlags::FLAG_VSYNC_HINT | ConfigFlags::FLAG_MSAA_4X_HINT);
     InitWindow(screenWidth, screenHeight, "The Event Loop of Life");
 
+    Flock flock;
+    flock.initialize(20, screenWidth, screenHeight); // Initialize flock with 20 crows
+
     SetTargetFPS(60);
 
     Level level;
@@ -19,6 +22,7 @@ int main(void)
     {
         // Update
         level.update();
+        flock.update();
 
         // Draw
         BeginDrawing();
@@ -26,6 +30,7 @@ int main(void)
         ClearBackground(RAYWHITE);
 
         level.draw();
+        flock.draw();
 
         EndDrawing();
     }

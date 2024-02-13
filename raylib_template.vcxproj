@@ -95,6 +95,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Crow.cpp" />
     <ClCompile Include="Source\Grass.cpp" />
     <ClCompile Include="Source\Level.cpp" />
     <ClCompile Include="Source\main.cpp" />
